@@ -1,0 +1,40 @@
+21:10:01 **** Auto Build of configuration Debug for project dispport ****
+make all 
+Building file: ../src/xdpdma_video_example.c
+Invoking: ARM v8 gcc compiler
+aarch64-none-elf-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdpdma_video_example.o" -I../../dispport_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xdpdma_video_example.d" -MT"src/xdpdma_video_example.o" -o "src/xdpdma_video_example.o" "../src/xdpdma_video_example.c"
+../src/xdpdma_video_example.c: In function 'InitDpDmaSubsystem':
+../src/xdpdma_video_example.c:234:33: warning: passing argument 1 of 'XAVBuf_SetInputLiveVideoFormat' from incompatible pointer type [-Wincompatible-pointer-types]
+  XAVBuf_SetInputLiveVideoFormat(&AVBufPtr, RGB_8BPC);
+                                 ^
+In file included from ../../dispport_bsp/psu_cortexa53_0/include/xdpdma.h:64:0,
+                 from ../src/xdpdma_video_example.h:58,
+                 from ../src/xdpdma_video_example.c:57:
+../../dispport_bsp/psu_cortexa53_0/include/xavbuf.h:262:5: note: expected 'XAVBuf * {aka struct <anonymous> *}' but argument is of type 'XAVBuf ** {aka struct <anonymous> **}'
+ int XAVBuf_SetInputLiveVideoFormat(XAVBuf *InstancePtr,
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/xdpdma_video_example.c:235:28: warning: passing argument 1 of 'XAVBuf_EnableVideoBuffers' from incompatible pointer type [-Wincompatible-pointer-types]
+  XAVBuf_EnableVideoBuffers(&AVBufPtr, 1);
+                            ^
+In file included from ../../dispport_bsp/psu_cortexa53_0/include/xdpdma.h:64:0,
+                 from ../src/xdpdma_video_example.h:58,
+                 from ../src/xdpdma_video_example.c:57:
+../../dispport_bsp/psu_cortexa53_0/include/xavbuf.h:294:6: note: expected 'XAVBuf * {aka struct <anonymous> *}' but argument is of type 'XAVBuf ** {aka struct <anonymous> **}'
+ void XAVBuf_EnableVideoBuffers(XAVBuf *InstancePtr, u8 Enable);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/xdpdma_video_example.c
+ 
+Building target: dispport.elf
+Invoking: ARM v8 gcc linker
+aarch64-none-elf-gcc -Wl,-T -Wl,../src/lscript.ld -L../../dispport_bsp/psu_cortexa53_0/lib -o "dispport.elf"  ./src/helloworld.o ./src/platform.o ./src/xdpdma_video_example.o ./src/xdppsu_interrupt.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: dispport.elf
+ 
+Invoking: ARM v8 Print Size
+aarch64-none-elf-size dispport.elf  |tee "dispport.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 104804	   5576	3715248	3825628	 3a5fdc	dispport.elf
+Finished building: dispport.elf.size
+ 
+
+21:10:03 Build Finished (took 1s.321ms)
+
